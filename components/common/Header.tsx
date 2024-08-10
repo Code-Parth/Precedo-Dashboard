@@ -17,7 +17,7 @@ export default function Header() {
                         <ThemeToggle />
                         <Link href="https://github.com/Code-Parth" target="_blank">
                             <Avatar className="border">
-                                <AvatarImage src="https://avatars.githubusercontent.com/u/84669955" />
+                                <AvatarImage src="https://avatars.githubusercontent.com/u/84669955" alt="profile picture" />
                                 <AvatarFallback>
                                     <UserIcon />
                                 </AvatarFallback>

@@ -28,6 +28,7 @@ export default function ThemeToggle() {
                 disabled={theme === "light" ? true : false}
                 className="rounded-full disabled:bg-accent disabled:opacity-100"
             >
+                <span className="sr-only">Light Mode</span>
                 <Sun02Icon className="h-5 w-5" />
             </ToggleGroupItem>
             <ToggleGroupItem
@@ -36,6 +37,7 @@ export default function ThemeToggle() {
                 disabled={theme === "system" ? true : false}
                 className="rounded-full disabled:bg-accent disabled:opacity-100"
             >
+                <span className="sr-only">System Mode</span>
                 <ComputerIcon className="h-5 w-5" />
             </ToggleGroupItem>
             <ToggleGroupItem
@@ -44,6 +46,7 @@ export default function ThemeToggle() {
                 disabled={theme === "dark" ? true : false}
                 className="rounded-full disabled:bg-accent disabled:opacity-100"
             >
+                <span className="sr-only">Dark Mode</span>
                 <Moon02Icon className="h-5 w-5" />
             </ToggleGroupItem>
         </ToggleGroup>
