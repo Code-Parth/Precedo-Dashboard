@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { UserIcon } from "hugeicons-react";
 import ThemeToggle from "@/components/theme-toggle";
+import SelectSector from "@/components/common/SelectSector";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function Header() {
     return (
@@ -15,8 +15,8 @@ export default function Header() {
                         <Image src="/cdn/logo/logoipsum-white.svg" alt="logo" width={192} height={50} className="p-4 hidden dark:block" />
                     </Link>
                     <div className="flex gap-2 items-center">
-
-                        <div className="">
+                        <SelectSector />
+                        <div className="max-sm:hidden sm:hidden md:block lg:block xl:block 2xl:block">
                             <ThemeToggle />
                         </div>
                         <Link href="https://github.com/Code-Parth" target="_blank">
