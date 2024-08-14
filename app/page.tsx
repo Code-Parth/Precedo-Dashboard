@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import SelectSymbol from "@/components/common/SelectSector";
+import { LineChartComponent } from "@/components/charts/lineChart";
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -114,6 +115,44 @@ export default function Home() {
             </CardContent>
           </Card>
         ))}
+      </div>
+
+      <div className="w-full flex flex-col gap-8">
+        {timeSeriesData01 && timeSeriesData01["Time Series (5min)"] && (
+          <LineChartComponent
+            title={`${stocks[0]?.name || 'Stock 1'} Stock Price`}
+            description={`Intraday stock price for ${stocks[0]?.symbol || 'Stock 1'}`}
+            rawChartData={timeSeriesData01["Time Series (5min)"]}
+          />
+        )}
+        {timeSeriesData02 && timeSeriesData02["Time Series (5min)"] && (
+          <LineChartComponent
+            title={`${stocks[1]?.name || 'Stock 2'} Stock Price`}
+            description={`Intraday stock price for ${stocks[1]?.symbol || 'Stock 2'}`}
+            rawChartData={timeSeriesData02["Time Series (5min)"]}
+          />
+        )}
+        {timeSeriesData03 && timeSeriesData03["Time Series (5min)"] && (
+          <LineChartComponent
+            title={`${stocks[2]?.name || 'Stock 3'} Stock Price`}
+            description={`Intraday stock price for ${stocks[2]?.symbol || 'Stock 3'}`}
+            rawChartData={timeSeriesData03["Time Series (5min)"]}
+          />
+        )}
+        {timeSeriesData04 && timeSeriesData04["Time Series (5min)"] && (
+          <LineChartComponent
+            title={`${stocks[3]?.name || 'Stock 4'} Stock Price`}
+            description={`Intraday stock price for ${stocks[3]?.symbol || 'Stock 4'}`}
+            rawChartData={timeSeriesData04["Time Series (5min)"]}
+          />
+        )}
+        {timeSeriesData05 && timeSeriesData05["Time Series (5min)"] && (
+          <LineChartComponent
+            title={`${stocks[4]?.name || 'Stock 5'} Stock Price`}
+            description={`Intraday stock price for ${stocks[4]?.symbol || 'Stock 5'}`}
+            rawChartData={timeSeriesData05["Time Series (5min)"]}
+          />
+        )}
       </div>
 
     </main>

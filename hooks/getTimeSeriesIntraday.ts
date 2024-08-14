@@ -37,7 +37,7 @@ export default async function getTimeSeriesIntraday(
     interval: "1min" | "5min" | "15min" | "30min" | "60min"
 ) {
     try {
-        const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=${interval}&apikey=${process.env.ALPHA_VANTAGE_API_KEY}&datatype=json`);
+        const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=${interval}&apikey=${process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY}&datatype=json`);
         const data: TimeSeriesIntradayTypes = await response.json();
         return data;
     } catch (error) {

@@ -30,7 +30,7 @@ export default function SelectSymbol() {
 
     async function fetchSearchValue(searchKeyword: string) {
         try {
-            const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&apikey=${process.env.ALPHA_VANTAGE_API_KEY}&keywords=${searchKeyword}&datatype=json`);
+            const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&apikey=${process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY}&keywords=${searchKeyword}&datatype=json`);
             const data = await response.json();
             setSearchResults(data.bestMatches || []);
         } catch (error) {
