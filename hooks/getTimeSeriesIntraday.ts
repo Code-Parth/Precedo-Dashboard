@@ -1,6 +1,6 @@
 export interface TimeSeriesIntradayTypes {
     "Meta Data": MetaData;
-    "Time Series (5min)": { [key: string]: TimeSeries5Min };
+    "Time Series (60min)": { [key: string]: TimeSeries5Min };
 }
 
 export interface MetaData {
@@ -29,7 +29,7 @@ export const defaultTimeSeriesData: TimeSeriesIntradayTypes = {
         "5. Output Size": "",
         "6. Time Zone": ""
     },
-    "Time Series (5min)": {}
+    "Time Series (60min)": {}
 };
 
 export default async function getTimeSeriesIntraday(

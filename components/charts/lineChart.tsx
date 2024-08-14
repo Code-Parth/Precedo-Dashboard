@@ -144,14 +144,14 @@ export function LineChartComponent(
                             stroke="hsl(var(--chart-4))"
                             stackId="a"
                         />
-                        <Area
+                        {/* <Area
                             dataKey="5. volume"
                             type="natural"
                             fill="hsl(var(--chart-5))"
                             fillOpacity={0.4}
                             stroke="hsl(var(--chart-5))"
                             stackId="a"
-                        />
+                        /> */}
                     </AreaChart>
                 </ChartContainer>
             </CardContent>

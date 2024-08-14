@@ -40,7 +40,7 @@ const top5FinancialStocks = [
 ];
 
 export default function Home() {
-  const [sector, setSector] = useState<string>("");
+  const [sector, setSector] = useState<string>("tech");
   const [stocks, setStocks] = useState<{ symbol: string, name: string, logo: string }[]>([]);
   const [timeSeriesData01, setTimeSeriesData01] = useState<TimeSeriesIntradayTypes>({} as TimeSeriesIntradayTypes);
   const [timeSeriesData02, setTimeSeriesData02] = useState<TimeSeriesIntradayTypes>({} as TimeSeriesIntradayTypes);
@@ -63,7 +63,7 @@ export default function Home() {
 
   const fetchStockData = useCallback(async () => {
     const dataPromises = selectedStocks.map(stock =>
-      getTimeSeriesIntraday(stock.symbol, "5min")
+      getTimeSeriesIntraday(stock.symbol, "60min")
     );
 
     const results = await Promise.all(dataPromises);
@@ -111,7 +111,7 @@ export default function Home() {
         {/* <SelectSymbol /> */}
         <Select onValueChange={handleSectorChange}>
           <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Select Sector" />
+            <SelectValue defaultValue="tech" defaultChecked={true} />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="tech">Tech</SelectItem>
@@ -135,46 +135,46 @@ export default function Home() {
       </div>
 
       <div className="w-full flex flex-col gap-8">
-        {timeSeriesData01 && timeSeriesData01["Time Series (5min)"] && (
+        {timeSeriesData01 && timeSeriesData01["Time Series (60min)"] && (
           <LineChartComponent
             title={`${stocks[0]?.name || 'Stock 1'} Stock Price`}
             description={`Intraday stock price for ${stocks[0]?.symbol || 'Stock 1'}`}
-            rawChartData={timeSeriesData01["Time Series (5min)"]}
+            rawChartData={timeSeriesData01["Time Series (60min)"]}
           />
         )}
-        {timeSeriesData02 && timeSeriesData02["Time Series (5min)"] && (
+        {timeSeriesData02 && timeSeriesData02["Time Series (60min)"] && (
           <LineChartComponent
             title={`${stocks[1]?.name || 'Stock 2'} Stock Price`}
             description={`Intraday stock price for ${stocks[1]?.symbol || 'Stock 2'}`}
-            rawChartData={timeSeriesData02["Time Series (5min)"]}
+            rawChartData={timeSeriesData02["Time Series (60min)"]}
           />
         )}
-        {timeSeriesData03 && timeSeriesData03["Time Series (5min)"] && (
+        {timeSeriesData03 && timeSeriesData03["Time Series (60min)"] && (
           <LineChartComponent
             title={`${stocks[2]?.name || 'Stock 3'} Stock Price`}
             description={`Intraday stock price for ${stocks[2]?.symbol || 'Stock 3'}`}
-            rawChartData={timeSeriesData03["Time Series (5min)"]}
+            rawChartData={timeSeriesData03["Time Series (60min)"]}
           />
         )}
-        {timeSeriesData04 && timeSeriesData04["Time Series (5min)"] && (
+        {timeSeriesData04 && timeSeriesData04["Time Series (60min)"] && (
           <LineChartComponent
             title={`${stocks[3]?.name || 'Stock 4'} Stock Price`}
             description={`Intraday stock price for ${stocks[3]?.symbol || 'Stock 4'}`}
-            rawChartData={timeSeriesData04["Time Series (5min)"]}
+            rawChartData={timeSeriesData04["Time Series (60min)"]}
           />
         )}
-        {timeSeriesData05 && timeSeriesData05["Time Series (5min)"] && (
+        {timeSeriesData05 && timeSeriesData05["Time Series (60min)"] && (
           <LineChartComponent
             title={`${stocks[4]?.name || 'Stock 5'} Stock Price`}
             description={`Intraday stock price for ${stocks[4]?.symbol || 'Stock 5'}`}
-            rawChartData={timeSeriesData05["Time Series (5min)"]}
+            rawChartData={timeSeriesData05["Time Series (60min)"]}
           />
         )}
-        {/* {queryData && queryData["Time Series (5min)"] && (
+        {/* {queryData && queryData["Time Series (60min)"] && (
           <LineChartComponent1
             title="Query Data Stock Price"
             description="Intraday stock price from query.json"
-            rawChartData={queryData["Time Series (5min)"]}
+            rawChartData={queryData["Time Series (60min)"]}
           />
         )} */}
       </div>
