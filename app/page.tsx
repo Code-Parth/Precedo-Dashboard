@@ -3,6 +3,7 @@
 import Image from "next/image";
 import SelectSymbol from "@/components/common/SelectSector";
 import { LineChartComponent } from "@/components/charts/lineChart";
+// import { LineChartComponent1 } from "@/components/charts/lineChart1";
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -88,6 +89,22 @@ export default function Home() {
 
   console.log(stocks, timeSeriesData01, timeSeriesData02, timeSeriesData03, timeSeriesData04, timeSeriesData05);
 
+  // const [queryData, setQueryData] = useState<Record<string, any>>({});
+
+  // const fetchQueryData = useCallback(async () => {
+  //   try {
+  //     const response = await fetch("/query.json");
+  //     const data = await response.json();
+  //     setQueryData(data);
+  //   } catch (error) {
+  //     console.error("Failed to fetch query data:", error);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   fetchQueryData();
+  // }, [fetchQueryData]);
+
   return (
     <main className="w-full min-h-screen max-w-[95vw] mx-auto py-8 flex flex-col">
       <div className="w-full flex justify-between gap-4">
@@ -153,8 +170,14 @@ export default function Home() {
             rawChartData={timeSeriesData05["Time Series (5min)"]}
           />
         )}
+        {/* {queryData && queryData["Time Series (5min)"] && (
+          <LineChartComponent1
+            title="Query Data Stock Price"
+            description="Intraday stock price from query.json"
+            rawChartData={queryData["Time Series (5min)"]}
+          />
+        )} */}
       </div>
-
     </main>
   );
 }
