@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import getTimeSeriesIntraday, { TimeSeriesIntradayTypes, defaultTimeSeriesData } from "@/hooks/getTimeSeriesIntraday";
 
 // Global Top 5 Stocks in Tech Sector
@@ -99,8 +101,17 @@ export default function Home() {
         </Select>
       </div>
 
-      <div>
-        {/* Add your content here */}
+      <div className="flex flex-wrap gap-2 py-8 w-full">
+        {stocks.map(stock => (
+          <Card key={stock.symbol} className="w-1/4">
+            <CardHeader>
+              <Image src={stock.logo} alt={stock.name} width={64} height={64} />
+            </CardHeader>
+            <CardContent>
+              <CardTitle>{stock.name}</CardTitle>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </main>
   );
