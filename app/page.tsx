@@ -107,8 +107,8 @@ export default function Home() {
 
   return (
     <main className="w-full min-h-screen max-w-[95vw] mx-auto py-8 flex flex-col">
-      <div className="w-full flex justify-between gap-4">
-        <SelectSymbol />
+      <div className="w-full flex justify-end">
+        {/* <SelectSymbol /> */}
         <Select onValueChange={handleSectorChange}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Select Sector" />
