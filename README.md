@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Precedo Dashboard
+
+Precedo Dashboard is a web application built with Next.js, React, and Recharts for visualizing time series data. This project includes various components and hooks to create interactive and customizable charts.
+
+## Key Components
+
+### Hooks
+
+- **getTimeSeriesIntraday**: A hook for fetching intraday time series data.
+
+### If the API has reached its limit and is not working
+
+uncomment the following lines in `app/page.tsx` to handle this scenario properly.
+
+- [Line 6](https://github.com/Code-Parth/Precedo-Dashboard/blob/dc1ef99a927d38ab723dfd1d8b24fd13c9be1fa2/app/page.tsx#L6)
+- [Line 92](https://github.com/Code-Parth/Precedo-Dashboard/blob/dc1ef99a927d38ab723dfd1d8b24fd13c9be1fa2/app/page.tsx#L92)
+- [Line 173](https://github.com/Code-Parth/Precedo-Dashboard/blob/dc1ef99a927d38ab723dfd1d8b24fd13c9be1fa2/app/page.tsx#L173)
+
+### Add a search functionality:
+Implement a search functionality that allows users to search for specific stock symbols. Create a dedicated page for each symbol where users can access more detailed information about the selected stock. You can refer to past commits for examples or relevant code snippets.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+-  Node.js
+-  pnpm (or npm/yarn)
+
+### Installation
+  - Clone the repository:
+    ```bash
+    git clone https://github.com/Code-Parth/precedo-dashboard.git
+    cd precedo-dashboard
+    ```
+  - Install dependencies:
+    ```bash
+    pnpm install
+    ```
+  - Create a `.env.local` file and add your environment variables.
+    ```
+    NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY=<YOUR_API_KEY>
+    ```
+    To obtain your API key, visit the Alpha Vantage support page: https://www.alphavantage.co/support/
+
+### Running the Development Server
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+pnpm build
+```
