@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import getTimeSeriesIntraday, { TimeSeriesIntradayTypes, defaultTimeSeriesData } from "@/hooks/getTimeSeriesIntraday";
 
 // Global Top 5 Stocks in Tech Sector
@@ -101,9 +102,9 @@ export default function Home() {
         </Select>
       </div>
 
-      <div className="flex flex-wrap gap-2 py-8 w-full">
+      <div className="py-8 gap-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {stocks.map(stock => (
-          <Card key={stock.symbol} className="w-1/4">
+          <Card key={stock.symbol}>
             <CardHeader>
               <Image src={stock.logo} alt={stock.name} width={64} height={64} />
             </CardHeader>
@@ -113,6 +114,7 @@ export default function Home() {
           </Card>
         ))}
       </div>
+
     </main>
   );
 }
