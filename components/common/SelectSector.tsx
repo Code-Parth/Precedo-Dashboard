@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import React, { useState, useEffect } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
@@ -20,6 +21,7 @@ interface SearchResultType {
 }
 
 export default function SelectSymbol() {
+    const router = useRouter();
     const [value, setValue] = useState<string>("");
     const [open, setOpen] = useState<boolean>(false);
     const [search, setSearch] = useState<string>("");
@@ -79,6 +81,7 @@ export default function SelectSymbol() {
                                     onSelect={(currentValue) => {
                                         setValue(currentValue === value ? "" : currentValue);
                                         setOpen(false);
+                                        router.push(`/search?symbol=${currentValue}`);
                                     }}
                                 >
                                     <Check
