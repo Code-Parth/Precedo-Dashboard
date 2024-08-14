@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import SelectSymbol from "@/components/common/SelectSector";
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import getTimeSeriesIntraday, { TimeSeriesIntradayTypes, defaultTimeSeriesData } from "@/hooks/getTimeSeriesIntraday";
 
 // Global Top 5 Stocks in Tech Sector
@@ -89,7 +89,8 @@ export default function Home() {
 
   return (
     <main className="w-full min-h-screen max-w-[95vw] mx-auto py-8 flex flex-col">
-      <div className="w-full flex justify-end">
+      <div className="w-full flex justify-between gap-4">
+        <SelectSymbol />
         <Select onValueChange={handleSectorChange}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Select Sector" />
